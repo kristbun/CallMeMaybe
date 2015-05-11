@@ -26,30 +26,42 @@
         <EditText
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:hint="Username"
+            android:hint="Name"
             android:ems="10"
-            android:id="@+id/username"
+            android:id="@+id/name"
             android:layout_gravity="center"
             android:textColor="#ff2670ff"
             android:textSize="30dp"
-            android:layout_marginBottom="70dp" />
+            android:layout_marginBottom="100dp" />
 
         <EditText
             android:layout_width="200dp"
             android:layout_height="wrap_content"
-            android:hint="Password"
-            android:inputType="textPassword"
+            android:hint="Tel-Number"
             android:ems="10"
-            android:id="@+id/userpw"
+            android:id="@+id/telnum"
             android:layout_gravity="center"
             android:textColor="#ff2670ff"
-            android:textSize="30dp" />
+            android:textSize="30dp"
+            android:layout_marginBottom="40dp"/>
+
+        <EditText
+            android:layout_width="200dp"
+            android:layout_height="wrap_content"
+            android:hint="E-mail"
+            android:ems="10"
+            android:id="@+id/mail"
+            android:layout_gravity="center"
+            android:textColor="#ff2670ff"
+            android:textSize="30dp"
+            android:layout_marginBottom="-15dp"/>
+
 
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Sign Up"
-            android:id="@+id/login"
+            android:text="Add"
+            android:id="@+id/add"
             android:layout_gravity="center_horizontal|bottom"
             android:layout_marginBottom="160dp"
             android:textSize="30dp"
