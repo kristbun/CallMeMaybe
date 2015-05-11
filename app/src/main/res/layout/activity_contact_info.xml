@@ -13,7 +13,8 @@
             android:layout_height="wrap_content"
             android:id="@+id/imageView"
             android:layout_gravity="center_horizontal|top"
-            android:src="@drawable/addc"/>
+            android:src="@drawable/contact"
+            android:layout_marginRight="5dp" />
 
         <ImageView
             android:layout_width="fill_parent"
@@ -60,7 +61,7 @@
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add"
+            android:text="Edit"
             android:id="@+id/add"
             android:layout_gravity="center_horizontal|bottom"
             android:layout_marginBottom="160dp"
