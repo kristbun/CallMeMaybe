@@ -1,13 +1,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.buu.se.s55160077.callmemaybe.MainActivity"
+    tools:context="com.buu.se.s55160077.callmemaybe.GroupActivity"
     android:background="@drawable/bg">
 
     <ListView
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:id="@+id/allContact"
+        android:id="@+id/allGroup"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"/>
+
 </RelativeLayout>

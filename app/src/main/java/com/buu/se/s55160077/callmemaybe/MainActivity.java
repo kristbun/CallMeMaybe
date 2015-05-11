@@ -28,12 +28,14 @@ public class MainActivity extends Activity {
         Intent intent = new Intent(this, AddContactActivity.class);
         this.startActivity(intent);
     }
+
     public void onAddGroupClick(View v){
         Intent intent = new Intent(this, AddGroupActivity.class);
         this.startActivity(intent);
     }
+
     public void onAllClick(View v){
-        Intent intent = new Intent(this, AllContactActivity.class);
+        Intent intent = new Intent(this, GroupActivity.class);
         this.startActivity(intent);
     }
 }

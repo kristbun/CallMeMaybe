@@ -6,14 +6,25 @@
 
     <FrameLayout
         android:layout_width="fill_parent"
-        android:layout_height="fill_parent"
-        android:background="@drawable/bg">
+        android:layout_height="100dp">
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/imageView"
             android:layout_gravity="center_horizontal|top"
-            android:src="@drawable/list_bg3"/>
+            android:src="@drawable/list_bg3" />
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:id="@+id/name"
+            android:layout_gravity="left|top"
+            android:textColor="@color/primary_dark"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="17dp"
+            android:textSize="50dp"/>
     </FrameLayout>
 </LinearLayout>
