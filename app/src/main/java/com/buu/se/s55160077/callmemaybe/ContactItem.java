@@ -6,14 +6,17 @@ package com.buu.se.s55160077.callmemaybe;
 public class ContactItem {
     private String txtName;
     private String txtTelnum;
-    private String txtGroup;
+    private String txtConID;
+
 
     public ContactItem() {
     }
 
-    public ContactItem(String txtName, String txttelnum) {
+    public ContactItem(String txtName, String txtTelnum, String txtConID) {
+
         this.txtName = txtName;
-        this.txtTelnum = txttelnum;
+        this.txtTelnum = txtTelnum;
+        this.txtConID = txtConID;
     }
 
     public String getTxtName() {
@@ -32,11 +35,11 @@ public class ContactItem {
         this.txtTelnum = txtTelnum;
     }
 
-    public String getTxtGroup() {
-        return txtGroup;
+    public String getTxtConID() {
+        return txtConID;
     }
 
-    public void setTxtGroup(String txtGroup) {
-        this.txtGroup = txtGroup;
+    public void setTxtConID(String txtConID) {
+        this.txtConID = txtConID;
     }
 }

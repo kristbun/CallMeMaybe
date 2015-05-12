@@ -8,6 +8,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,6 +28,7 @@ public class AllContactActivity extends Activity {
         for(int i=0;i<10;i++)
         {
             ContactItem listObj = new ContactItem();
+            listObj.setTxtConID(String.valueOf(i));
             listObj.setTxtName("name " + String.valueOf(i));
             listObj.setTxtTelnum("087-6061250");
             mItems.add(listObj);
@@ -37,7 +39,13 @@ public class AllContactActivity extends Activity {
         ListView listView = (ListView)findViewById(R.id.allContact);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            public void onItemClick(AdapterView<?> arg0, View arg1, int arg2, long arg3) {
+            public void onItemClick(AdapterView<?> arg0, View view, int position, long ID) {
+                ContactItem contactItem = mItems.get(position);
+                String id = contactItem.getTxtConID();
+
+                Toast toast = Toast.makeText(getApplicationContext(), id, Toast.LENGTH_SHORT);
+                toast.show();
+
                 Intent intent = new Intent(AllContactActivity.this, ContactInfoActivity.class);
                 startActivity(intent);
             }

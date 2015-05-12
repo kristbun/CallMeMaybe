@@ -14,9 +14,9 @@ import java.util.List;
  */
 public class GroupAdapter extends BaseAdapter {
     Context mContext;
-    List<ContactItem> mItem;
+    List<GroupItem> mItem;
 
-    public GroupAdapter(Context context, List<ContactItem> item) {
+    public GroupAdapter(Context context, List<GroupItem> item) {
         this.mContext= context;
         this.mItem = item;
     }
@@ -35,7 +35,7 @@ public class GroupAdapter extends BaseAdapter {
 
     public View getView(int position, View convertView, ViewGroup parent) {
         ViewHolder viewHolder;
-        final ContactItem item = mItem.get(position);
+        final GroupItem item = mItem.get(position);
 
         if(convertView == null) {
             // inflate the GridView item layout
