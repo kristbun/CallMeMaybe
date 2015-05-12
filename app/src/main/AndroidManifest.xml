@@ -27,7 +27,7 @@
             android:label="@string/title_activity_add_group" >
         </activity>
         <activity
-            android:name=".AllContactActivity"
+            android:name=".ContactActivity"
             android:label="@string/title_activity_all_contact" >
         </activity>
         <activity

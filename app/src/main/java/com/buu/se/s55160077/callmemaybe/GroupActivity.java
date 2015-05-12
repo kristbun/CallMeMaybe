@@ -6,14 +6,9 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.Menu;
-import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.AdapterView.OnItemClickListener;
-import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,14 +27,6 @@ public class GroupActivity extends Activity {
         setContentView(R.layout.activity_group);
 
         mItems  = new ArrayList<GroupItem>();
-
-//        for(int i=0;i<3;i++)
-//        {
-//            GroupItem listObj = new GroupItem();
-//            listObj.setTxtGroupID(String.valueOf(i));
-//            listObj.setTxtGroup("เพื่อน " + String.valueOf(i));
-//            mItems.add(listObj);
-//        }
 
         new GroupJson().execute("");
 
@@ -97,7 +84,8 @@ public class GroupActivity extends Activity {
                         GroupItem groupItem = mItems.get(position);
                         String id = groupItem.getTxtGroupID();
 
-                        Intent intent = new Intent(GroupActivity.this, AllContactActivity.class);
+                        Intent intent = new Intent(GroupActivity.this, ContactActivity.class);
+                        intent.putExtra("GID", id);
                         startActivity(intent);
                     }
                 });

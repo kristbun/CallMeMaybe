@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Edit"
-            android:id="@+id/add"
+            android:id="@+id/edit"
             android:layout_gravity="center_horizontal|bottom"
             android:layout_marginBottom="40dp"
             android:textSize="30dp"
@@ -35,7 +35,7 @@
             android:id="@+id/mail"
             android:layout_gravity="center_horizontal|bottom"
             android:textColor="#ff2670ff"
-            android:textSize="30dp"
+            android:textSize="20dp"
             android:layout_marginBottom="100dp"/>
 
         <EditText

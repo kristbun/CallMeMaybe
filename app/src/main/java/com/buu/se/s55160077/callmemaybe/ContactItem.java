@@ -7,16 +7,18 @@ public class ContactItem {
     private String txtName;
     private String txtTelnum;
     private String txtConID;
+    private String txtConMail;
 
 
     public ContactItem() {
     }
 
-    public ContactItem(String txtName, String txtTelnum, String txtConID) {
+    public ContactItem(String txtName, String txtTelnum, String txtConID, String txtConMail) {
 
         this.txtName = txtName;
         this.txtTelnum = txtTelnum;
         this.txtConID = txtConID;
+        this.txtConMail = txtConMail;
     }
 
     public String getTxtName() {
@@ -41,5 +43,14 @@ public class ContactItem {
 
     public void setTxtConID(String txtConID) {
         this.txtConID = txtConID;
+    }
+
+
+    public String getTxtConMail() {
+        return txtConMail;
+    }
+
+    public void setTxtConMail(String txtConMail) {
+        this.txtConMail = txtConMail;
     }
 }
