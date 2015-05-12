@@ -1,0 +1,38 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.buu.se.s55160077.callmemaybe.MainActivity"
+    android:background="@drawable/bg">
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/allContact"
+            android:layout_gravity="center_horizontal|top"
+            android:src="@drawable/all"
+            android:onClick="onAllContactClick" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/myprofile"
+            android:layout_gravity="center_horizontal|top"
+            android:src="@drawable/prof"
+            android:onClick="onProfileClick"
+            android:layout_marginTop="95dp" />
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/signout"
+            android:layout_gravity="center_horizontal|top"
+            android:src="@drawable/sout"
+            android:onClick="onSignoutClick"
+            android:layout_marginTop="190dp" />
+    </FrameLayout>
+
+</RelativeLayout>

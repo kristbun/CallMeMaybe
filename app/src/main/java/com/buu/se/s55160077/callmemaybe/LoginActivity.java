@@ -17,8 +17,9 @@ public class LoginActivity extends Activity {
 
 
     public void onLoginClick(View v){
-        Intent intent = new Intent(this, GroupActivity.class);
+        Intent intent = new Intent(this, MainActivity.class);
         this.startActivity(intent);
+        finish();
     }
 
     public void onRegisterClick(View v){

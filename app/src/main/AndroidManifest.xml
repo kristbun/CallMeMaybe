@@ -40,6 +40,14 @@
             android:name=".ContactInfoActivity"
             android:label="@string/title_activity_contact_info" >
         </activity>
+        <activity
+            android:name=".MainActivity"
+            android:label="@string/title_activity_main" >
+        </activity>
+        <activity
+            android:name=".ProfileActivity"
+            android:label="@string/title_activity_profile" >
+        </activity>
     </application>
 
 </manifest>
