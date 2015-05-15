@@ -22,6 +22,56 @@ import java.io.InputStreamReader;
  * Created by LUKHINNN on 12/05/2015.
  */
 public class RestService {
+    public JSONObject putUser(String url,String username,String password)
+    {
+        InputStream inputStream = null;
+        JSONObject jsonObj = null;
+        boolean resultBool = false;
+
+        try {
+            // 1. create HttpClient
+            HttpClient httpclient = new DefaultHttpClient();
+            // 2. make POST request to the given URL
+
+            HttpPost httpPut = new HttpPost(url);
+            String json = "";
+            //              // 3. build jsonObject
+            //              JSONObject jsonObject2 = new JSONObject();
+            //              jsonObject2.put("idGuarderias", idG);
+            // 3. build jsonObject
+            JSONObject jsonObject = new JSONObject();
+
+            jsonObject.put("user_login",username);
+            jsonObject.put("user_password",password);
+
+            //      jsonObject.put("guarderiasIdGuarderias",jsonObject2);
+            json = jsonObject.toString();
+            Log.d("STRING", json);
+            StringEntity se = new StringEntity(json);
+            // 6. set httpPost Entity
+            httpPut.setEntity(se);
+            // 7. Set some headers to inform server about the type of the content
+            httpPut.addHeader("Accept", "application/json");
+            httpPut.addHeader("Content-type", "application/json");
+            // 8. Execute POST request to the given URL
+            HttpResponse httpResponse = httpclient.execute(httpPut);
+
+
+            //Try to add this
+            inputStream = httpResponse.getEntity().getContent();
+            String result = convertStreamToString(inputStream);
+            // construct a JSON object with result
+            jsonObj = new JSONObject(result);
+            // Closing the input stream will trigger connection release
+            inputStream.close();
+
+
+        } catch (Exception e) {
+            //Log.d("InputStream", e.getLocalizedMessage());
+        }
+        return jsonObj;
+    }
+
     public JSONObject putLogin(String url,String user,String pw)
     {
         InputStream inputStream = null;
