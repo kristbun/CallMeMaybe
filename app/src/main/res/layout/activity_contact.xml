@@ -16,6 +16,14 @@
             android:src="@drawable/addc"
             android:onClick="onAddContactClick" />
 
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/bob"
+            android:layout_gravity="center"
+            android:src="@drawable/nolist"
+            android:layout_marginLeft="50dp" />
+
         <ListView
             android:layout_width="fill_parent"
             android:layout_height="400dp"

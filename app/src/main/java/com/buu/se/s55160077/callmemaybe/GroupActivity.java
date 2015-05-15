@@ -8,6 +8,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import org.json.JSONArray;
@@ -76,7 +77,8 @@ public class GroupActivity extends Activity {
             }
 
             if(mItems.size() == 0){
-
+                ImageView imgView = (ImageView)findViewById(R.id.bob);
+                imgView.setVisibility(View.VISIBLE);
             }
             else
             {
@@ -95,6 +97,8 @@ public class GroupActivity extends Activity {
                         startActivity(intent);
                     }
                 });
+                ImageView imgView = (ImageView)findViewById(R.id.bob);
+                imgView.setVisibility(View.GONE);
             }
 
             super.onPostExecute(jsonobject);
