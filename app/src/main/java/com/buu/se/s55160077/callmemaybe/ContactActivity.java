@@ -96,11 +96,13 @@ public class ContactActivity extends Activity {
                         String lname = contactItem.getTxtName();
                         String ltel = contactItem.getTxtTelnum();
                         String lmail = contactItem.getTxtConMail();
+                        String lid = contactItem.getTxtConID();
 
                         Intent intent = new Intent(ContactActivity.this, ContactInfoActivity.class);
                         intent.putExtra("NAME", lname);
                         intent.putExtra("TEL", ltel);
                         intent.putExtra("MAIL", lmail);
+                        intent.putExtra("ID", lid);
                         startActivity(intent);
                     }
                 });
