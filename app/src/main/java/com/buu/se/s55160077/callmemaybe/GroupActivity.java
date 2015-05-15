@@ -22,11 +22,16 @@ public class GroupActivity extends Activity {
     private List<GroupItem> mItems;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+        new GroupJson().execute("");
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_group);
-
-        mItems  = new ArrayList<GroupItem>();
 
         new GroupJson().execute("");
 
@@ -52,6 +57,7 @@ public class GroupActivity extends Activity {
         @Override
         protected void onPostExecute(JSONObject jsonobject) {
             try {
+                mItems  = new ArrayList<GroupItem>();
 
                 JSONArray jsonarray;
                 jsonarray = jsonobject.getJSONArray("categorys");

@@ -27,7 +27,7 @@
             android:layout_height="wrap_content"
             android:hint="Group Name"
             android:ems="10"
-            android:id="@+id/groupname"
+            android:id="@+id/groupName"
             android:layout_gravity="center"
             android:textColor="#ff2670ff"
             android:textSize="30dp"
@@ -41,7 +41,8 @@
             android:layout_gravity="center_horizontal|bottom"
             android:layout_marginBottom="180dp"
             android:textSize="30dp"
-            android:textColor="#ffffff"/>
+            android:textColor="#ffffff"
+            android:onClick="onCreateClick" />
     </FrameLayout>
 
 </RelativeLayout>
