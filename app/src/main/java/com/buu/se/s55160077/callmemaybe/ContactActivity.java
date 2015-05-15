@@ -24,11 +24,16 @@ public class ContactActivity extends Activity {
     private List<ContactItem> mItems;
 
     @Override
+    protected void onResume() {
+        super.onResume();
+
+        new ListJson().execute("");
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_contact);
-
-        mItems  = new ArrayList<ContactItem>();
 
         new ListJson().execute("");
     }
@@ -53,6 +58,8 @@ public class ContactActivity extends Activity {
         @Override
         protected void onPostExecute(JSONObject jsonobject) {
             try {
+
+                mItems  = new ArrayList<ContactItem>();
 
                 JSONArray jsonarray;
                 jsonarray = jsonobject.getJSONArray("lists");
@@ -102,7 +109,12 @@ public class ContactActivity extends Activity {
     }
 
     public void onAddContactClick(View v){
+        String gid;
+        Bundle extras = getIntent().getExtras();
+        gid = extras.getString("GID");
+
         Intent intent = new Intent(this, AddContactActivity.class);
+        intent.putExtra("GID", gid);
         this.startActivity(intent);
     }
 }

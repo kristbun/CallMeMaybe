@@ -65,7 +65,8 @@
             android:layout_gravity="center"
             android:textSize="30dp"
             android:textColor="#ffffff"
-            android:layout_marginTop="70dp" />
+            android:layout_marginTop="70dp"
+            android:onClick="onAddClick" />
     </FrameLayout>
 
 </RelativeLayout>
