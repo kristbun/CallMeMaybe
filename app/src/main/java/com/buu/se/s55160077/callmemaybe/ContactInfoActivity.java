@@ -26,7 +26,6 @@ public class ContactInfoActivity extends Activity {
         String cname;
         String ctel;
         String cmail;
-        String cid;
 
         Bundle extras = getIntent().getExtras();
 

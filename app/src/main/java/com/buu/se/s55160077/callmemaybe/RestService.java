@@ -278,6 +278,104 @@ public class RestService {
         return jsonObj;
     }
 
+    public JSONObject putEditGroup(String url,String id,String name)
+    {
+        InputStream inputStream = null;
+        JSONObject jsonObj = null;
+        boolean resultBool = false;
+
+        try {
+            // 1. create HttpClient
+            HttpClient httpclient = new DefaultHttpClient();
+            // 2. make POST request to the given URL
+
+            HttpPost httpPut = new HttpPost(url);
+            String json = "";
+            //              // 3. build jsonObject
+            //              JSONObject jsonObject2 = new JSONObject();
+            //              jsonObject2.put("idGuarderias", idG);
+            // 3. build jsonObject
+            JSONObject jsonObject = new JSONObject();
+
+            jsonObject.put("cat_id",id);
+            jsonObject.put("cat_name",name);
+
+            //      jsonObject.put("guarderiasIdGuarderias",jsonObject2);
+            json = jsonObject.toString();
+            Log.d("STRING", json);
+            StringEntity se = new StringEntity(json);
+            // 6. set httpPost Entity
+            httpPut.setEntity(se);
+            // 7. Set some headers to inform server about the type of the content
+            httpPut.addHeader("Accept", "application/json");
+            httpPut.addHeader("Content-type", "application/json");
+            // 8. Execute POST request to the given URL
+            HttpResponse httpResponse = httpclient.execute(httpPut);
+
+
+            //Try to add this
+            inputStream = httpResponse.getEntity().getContent();
+            String result = convertStreamToString(inputStream);
+            // construct a JSON object with result
+            jsonObj = new JSONObject(result);
+            // Closing the input stream will trigger connection release
+            inputStream.close();
+
+
+        } catch (Exception e) {
+            //Log.d("InputStream", e.getLocalizedMessage());
+        }
+        return jsonObj;
+    }
+    public JSONObject putDeleteGroup(String url,String id)
+    {
+        InputStream inputStream = null;
+        JSONObject jsonObj = null;
+        boolean resultBool = false;
+
+        try {
+            // 1. create HttpClient
+            HttpClient httpclient = new DefaultHttpClient();
+            // 2. make POST request to the given URL
+
+            HttpPost httpPut = new HttpPost(url);
+            String json = "";
+            //              // 3. build jsonObject
+            //              JSONObject jsonObject2 = new JSONObject();
+            //              jsonObject2.put("idGuarderias", idG);
+            // 3. build jsonObject
+            JSONObject jsonObject = new JSONObject();
+
+            jsonObject.put("cat_id",id);
+
+            //      jsonObject.put("guarderiasIdGuarderias",jsonObject2);
+            json = jsonObject.toString();
+            Log.d("STRING", json);
+            StringEntity se = new StringEntity(json);
+            // 6. set httpPost Entity
+            httpPut.setEntity(se);
+            // 7. Set some headers to inform server about the type of the content
+            httpPut.addHeader("Accept", "application/json");
+            httpPut.addHeader("Content-type", "application/json");
+            // 8. Execute POST request to the given URL
+            HttpResponse httpResponse = httpclient.execute(httpPut);
+
+
+            //Try to add this
+            inputStream = httpResponse.getEntity().getContent();
+            String result = convertStreamToString(inputStream);
+            // construct a JSON object with result
+            jsonObj = new JSONObject(result);
+            // Closing the input stream will trigger connection release
+            inputStream.close();
+
+
+        } catch (Exception e) {
+            //Log.d("InputStream", e.getLocalizedMessage());
+        }
+        return jsonObj;
+    }
+
     private static String convertStreamToString(InputStream is) {
 
         BufferedReader br = null;

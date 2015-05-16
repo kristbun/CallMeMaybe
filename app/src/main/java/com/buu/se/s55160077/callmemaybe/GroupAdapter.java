@@ -1,10 +1,13 @@
 package com.buu.se.s55160077.callmemaybe;
 
+import android.app.Dialog;
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.widget.BaseAdapter;
+import android.widget.Button;
 import android.widget.TextView;
 
 import java.util.List;
@@ -13,7 +16,7 @@ import java.util.List;
  * Created by LUKHINNN on 11/05/2015.
  */
 public class GroupAdapter extends BaseAdapter {
-    Context mContext;
+    final Context mContext;
     List<GroupItem> mItem;
 
     public GroupAdapter(Context context, List<GroupItem> item) {
@@ -52,7 +55,6 @@ public class GroupAdapter extends BaseAdapter {
             viewHolder = (ViewHolder) convertView.getTag();
         }
         viewHolder.name.setText(item.getTxtGroup());
-        //ImageView food_path = (ImageView) convertView.findViewById(R.id.food_path);
 
         return convertView;
     }
