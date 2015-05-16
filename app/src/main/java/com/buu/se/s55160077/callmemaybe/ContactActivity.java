@@ -1,15 +1,21 @@
 package com.buu.se.s55160077.callmemaybe;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import org.json.JSONArray;
@@ -23,6 +29,7 @@ import java.util.List;
 public class ContactActivity extends Activity {
 
     private List<ContactItem> mItems;
+    private String cid;
 
     @Override
     protected void onResume() {
@@ -54,8 +61,6 @@ public class ContactActivity extends Activity {
 
             return jsonobject;
         }
-
-
         @Override
         protected void onPostExecute(JSONObject jsonobject) {
             try {
@@ -83,6 +88,9 @@ public class ContactActivity extends Activity {
             if(mItems.size() == 0){
                 ImageView imgView = (ImageView)findViewById(R.id.bob);
                 imgView.setVisibility(View.VISIBLE);
+                ContactAdapter adapter = new ContactAdapter(getApplicationContext(),mItems);
+                ListView listView = (ListView)findViewById(R.id.allContact);
+                listView.setAdapter(adapter);
             }
             else
             {
@@ -107,11 +115,84 @@ public class ContactActivity extends Activity {
                     }
                 });
 
+                listView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+
+                    public boolean onItemLongClick(AdapterView<?> arg0, View view, int position, long ID) {
+                        ContactItem conItem = mItems.get(position);
+                        cid = conItem.getTxtConID();
+                        String cname = conItem.getTxtName();
+
+                        final Dialog dialog = new Dialog(ContactActivity.this, R.style.spoungebobDialog);
+                        dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+                        dialog.setContentView(R.layout.contact_delete);
+                        dialog.setCancelable(true);
+                        dialog.show();
+                        TextView textView = (TextView)dialog.findViewById(R.id.NAME);
+                        textView.setText(cname);
+
+                        Button del = (Button) dialog.findViewById(R.id.delete);
+                        del.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                new DelContact().execute("");
+                                dialog.dismiss();
+                            }
+                        });
+                        Button cancel = (Button) dialog.findViewById(R.id.cancel);
+                        cancel.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                dialog.dismiss();
+                            }
+                        });
+
+                        return true;
+                    }
+                });
+
                 ImageView imgView = (ImageView)findViewById(R.id.bob);
                 imgView.setVisibility(View.GONE);
             }
 
             super.onPostExecute(jsonobject);
+        }
+    }
+
+    private class DelContact extends AsyncTask<String, Integer, JSONObject> {
+
+        @Override
+        protected void onPreExecute() {
+            super.onPreExecute();
+        }
+
+        @Override
+        protected JSONObject doInBackground(String... params) {
+            String url = "http://10.16.77.108/dezatoshop/restcontact/index.php/api/c_con_list/listdelete";
+
+            RestService re = new RestService();
+            JSONObject resultJson = re.putDeleteContact(url, cid);
+
+            return resultJson;
+        }
+
+        @Override
+        protected void onPostExecute(JSONObject resultJson) {
+            Log.d("STRING", resultJson.toString());
+            try {
+
+                if (resultJson.getString("result").equals("SUCCESS")){
+                    Toast toast = Toast.makeText(getApplicationContext(), "Delete Success", Toast.LENGTH_SHORT);
+                    toast.show();
+                    new ListJson().execute("");
+                } else {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Can't Delete Contact", Toast.LENGTH_SHORT);
+                    toast.show();
+                }
+
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            super.onPostExecute(resultJson);
         }
     }
 

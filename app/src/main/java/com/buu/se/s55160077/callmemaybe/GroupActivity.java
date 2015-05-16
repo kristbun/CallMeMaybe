@@ -89,6 +89,9 @@ public class GroupActivity extends Activity {
             if(mItems.size() == 0){
                 ImageView imgView = (ImageView)findViewById(R.id.bob);
                 imgView.setVisibility(View.VISIBLE);
+                GroupAdapter adapter = new GroupAdapter(getApplicationContext(),mItems);
+                ListView listView = (ListView)findViewById(R.id.allGroup);
+                listView.setAdapter(adapter);
             }
             else
             {
